@@ -46,7 +46,7 @@ const signup = (req, res) => {
 }
 
 const login = (req, res) => {
-    let { usuario, password, nombre, apellido } = req.body;
+    let { usuario, password } = req.body;
     _usuario.find({})
         .then(personas => {
             usuario = personas.filter(u => (u.usuario == usuario))[0];

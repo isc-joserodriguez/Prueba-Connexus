@@ -1,6 +1,7 @@
 const express = require('express');
 const wagner = require('wagner-core');
 const bodyParser = require('body-parser');
+var cors = require('cors');
 
 //Importar modelos
 require('./models/models')(wagner);
@@ -10,6 +11,8 @@ const usuarioRouter = require('./routers/usuario.router')(wagner);
 
 //Configuración del servidor
 let app = express();
+
+app.use(cors());
 
 // Configurar cabeceras y <span class="searchword">cors</span>
 app.use((req, res, next) => {
@@ -26,6 +29,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //Agregar la ruta
-app.use("/usuario", usuarioRouter);
+app.use("/usuarios", usuarioRouter);
 
 module.exports = app;

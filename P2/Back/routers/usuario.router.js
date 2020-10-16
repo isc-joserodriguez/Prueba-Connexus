@@ -14,6 +14,11 @@ module.exports = (wagner) => {
         usuarioCtrl.login(req,res);
     });
 
+    //Verificar sesión
+    usuarioRouter.get('/verificarSesion', token.checkJWT, (req, res) => {
+        usuarioCtrl.verificarSesion(req, res);
+    });
+
     //Definir endpoints
     return usuarioRouter;
 }

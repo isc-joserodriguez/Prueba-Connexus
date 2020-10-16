@@ -91,9 +91,16 @@ const login = (req, res) => {
         });
 }
 
+const verificarSesion = (req, res) => {
+    var status = req.status;
+    res.status(200).json({
+        status: req.status
+    });
+}
+
 module.exports = (Usuario) => {
     _usuario = Usuario;
     return ({
-        signup, login
+        signup, login, verificarSesion
     });
 }

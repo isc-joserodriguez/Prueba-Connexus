@@ -10,11 +10,11 @@ const checkJWT = (req, res, next) => {
         const { authorization } = req.headers;
         const decoded = verifyJWT(authorization);
         req.decoded = decoded;
+        req.status = true;
         next();
     } catch (error) {
-        req.decoded = { token: 'expirado' }
+        req.status = false;
         next();
-        /* return res.status(401).send({ message: 'Unauthorized' }); */
     }
 };
 

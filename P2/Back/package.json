@@ -4,6 +4,7 @@
   "description": "API para manejar la autenticacion jwt de usuarios",
   "main": "bin/index.js",
   "scripts": {
+    "start":"nodemon ./bin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

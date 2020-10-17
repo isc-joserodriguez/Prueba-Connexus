@@ -3,7 +3,7 @@ import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { SingupComponent } from './singup/singup.component';
+import { SignupComponent } from './signup/signup.component';
 import { NavComponent } from './nav/nav.component';
 
 const routes: Routes = [
@@ -20,8 +20,8 @@ const routes: Routes = [
         component: LoginComponent
       },
       {
-        path: 'singnup',
-        component: SingupComponent
+        path: 'singup',
+        component: SignupComponent
       },
     ]
   }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -6,10 +9,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  signupForm: FormGroup;
 
-  constructor() { }
+  constructor(private auth: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
+    this.signupForm = this.formBuilder.group({
+      usuario: ['', Validators.required],
+      password: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required]
+    });
+  }
+
+  crearUsuario() {
+    let { password, usuario } = this.signupForm.value;
+    this.auth.signup(this.signupForm.value).subscribe((resp: any) => {
+      this.iniciarSesion({ password: password, usuario: usuario });
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  iniciarSesion(datos) {
+    console.log(datos);
+    this.auth.login(datos).subscribe((resp: any) => {
+      localStorage.setItem('token',resp.detail);
+      this.router.navigate(['/home']);
+    }, err => {
+      console.log(err);
+    });
+
   }
 
 }

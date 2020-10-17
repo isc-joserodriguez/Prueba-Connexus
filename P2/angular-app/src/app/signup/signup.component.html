@@ -1,3 +1,21 @@
-<p>
-  signup works!
-</p>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <h1>Sign Up</h1>
+    </div>
+    
+    <form [formGroup]="signupForm">
+      <input type="text" id="usuario" class="fadeIn second" placeholder="usuario" formControlName="usuario">
+      <input type="password" id="password" class="fadeIn third" placeholder="password" formControlName="password">
+      <input type="text" id="nombre" class="fadeIn second" placeholder="nombre(s)" formControlName="nombre">
+      <input type="text" id="apellido" class="fadeIn second" placeholder="apellido(s)" formControlName="apellido">
+      <input type="submit" class="fadeIn fourth" value="Log In" [disabled]="!signupForm.valid" (click)="crearUsuario()">
+    </form>
+
+    <div id="formFooter">
+      <a class="underlineHover" [routerLink]="['/login']">Iniciar sesión</a>
+    </div>
+
+  </div>
+</div>

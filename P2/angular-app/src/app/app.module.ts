@@ -8,6 +8,12 @@ import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 import { SignupComponent } from './signup/signup.component';
 
+//Forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//http
+import { HttpClientModule} from "@angular/common/http";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +24,10 @@ import { SignupComponent } from './signup/signup.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

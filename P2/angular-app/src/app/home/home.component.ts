@@ -16,6 +16,9 @@ export class HomeComponent implements OnInit {
   }
 
   verificarToken() {
+    if(!localStorage.getItem('token')){
+      this.router.navigate(['/']);
+    }
     this.auth.verificarToken(localStorage.getItem('token')).subscribe((resp: any) => {
       if (!resp.status) {
         this.router.navigate(['/']);

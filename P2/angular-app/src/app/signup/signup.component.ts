@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
   constructor(private auth: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
+    this.verificarToken();
     this.signupForm = this.formBuilder.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required],
@@ -34,12 +35,25 @@ export class SignupComponent implements OnInit {
   iniciarSesion(datos) {
     console.log(datos);
     this.auth.login(datos).subscribe((resp: any) => {
-      localStorage.setItem('token',resp.detail);
+      localStorage.setItem('token', resp.detail);
       this.router.navigate(['/home']);
     }, err => {
       console.log(err);
     });
 
+  }
+
+  verificarToken() {
+    if (localStorage.getItem('token')) {
+      this.auth.verificarToken(localStorage.getItem('token')).subscribe((resp: any) => {
+        if (resp.status) {
+          this.router.navigate(['/home']);
+        }
+      }, err => {
+        console.log(err);
+      });
+
+    }
   }
 
 }

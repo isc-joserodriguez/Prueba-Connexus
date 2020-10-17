@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <h1>Login</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="usuario" class="fadeIn second" placeholder="usuario">
+      <input type="text" id="password" class="fadeIn third" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" [routerLink]="['/signup']">Crear usuario</a>
+    </div>
+
+  </div>
+</div>

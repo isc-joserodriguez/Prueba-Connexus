@@ -1,17 +1,9 @@
 let _usuario;
 const hash = require('../middlewares/password');
 const tkn = require('../middlewares/token');
-/* 
-{
-    usuario: "User1",
-    password: "Pass",
-    nombre: "Mariano",
-    apellido: "Perez"
-}
- */
+
 const signup = (req, res) => {
     const usuario = req.body;
-    console.log(usuario);
     _usuario.find({}).then(regs => {
         if (!usuario.usuario || !usuario.password) {
             res.status(400).json({

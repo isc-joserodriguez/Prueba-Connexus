@@ -27,8 +27,8 @@
               "src/assets/styles/bootstrap.min.css"
             ],
             "scripts": [
-              "src/assets/js/bootstrap.min.js",
               "src/assets/js/jquery-3.2.1.slim.min.js",
+              "src/assets/js/bootstrap.min.js",
               "src/assets/js/popper.min.js"
             ],
             "es5BrowserSupport": true
